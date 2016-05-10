@@ -1,8 +1,11 @@
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Lexicon%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%Word Type Gender
 %%%%%%	PRONOMES INTERR	%%%%%%
 lex(quantos,quantity,pro,m,p).
+lex(quantas,quantity,pro,f,p).
 lex(quais,enumeration,pro,_,p).
 
 %%%%%%	CONJUNÇÔES	%%%%%%
@@ -78,16 +81,6 @@ parser_test:-
 				write('high level representation '),nl,
 				write(I),nl.
 
-%%%write(T),nl,
-%%%write('Suj: ') , write(Suj),nl,
-%%%write('Obj: '), write(Obj), nl,
-%%%write('Acc: '), write(Acc).
-
-
-
-%%concorda_test:-   s(T,Suj,Obj , Acc ,  ['o', 'joão', 'é', 'amigo', 'do', 'pedro'] , [] ) , 
-%%				  concorda_frase(Acc,Suj,Obj).
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%KnowledgeBase%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -106,18 +99,15 @@ amigos(4,[2]).
 amigo(A,B):- pessoa(Id1, A,_,_) , pessoa(Id2, B, _,_) , amigos(Id1, L1), member(Id2, L1).
 em_comum(A,B,L):- pessoa(Id1, A,_,_) , pessoa(Id2, B, _,_), amigos(Id1, L1), amigos(Id2, L2), findall(X,(member(X,L1),member(X,L2)),L).
 
-
-
+%%%sentence("quantos amigos do zé têm entre 16 e 28 anos").
+%%%sentence("quantos amigos do zé têm menos de 21 anos").
 %%%sentence("quantos amigos do zé têm mais de 21 anos").
-%%%sentence("quais são os amigos em comum do zé e da rita").
-%%%sentence("quais são os amigos do zé").
-
+sentence("quais são os amigos em comum do zé e da rita").
+%%sentence("quais são os amigos do zé").
 %%sentence("quantos amigos tem a rita").
-
 %%sentence("o joão é amigo do zé").
 %%sentence("a rita é amiga da ana").
 %%sentence("o zé é amigo da rita").
-
 %%sentence("a ana e a rita são amigas").
 
 
